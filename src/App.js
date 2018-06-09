@@ -5,10 +5,9 @@ import {
   Redirect,
   Switch
 } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 import $ from "jquery/dist/jquery.slim";
 import "bootstrap";
-import "./App.css";
 import { Home, About, ShowTime, Portfolio, Contact, Page404 } from "./Pages";
 window.$ = $;
 
@@ -20,6 +19,7 @@ class App extends Component {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/about" component={About} />
+            {/* <Route path="/portfolio/view/:id" component={Portfolio} /> */}
             <Route path="/portfolio/slideShow/" component={ShowTime} />
             <Route path="/portfolio" component={Portfolio} />
             <Route path="/contact" component={Contact} />

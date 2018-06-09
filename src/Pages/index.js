@@ -10,22 +10,18 @@ function Laz(comp) {
     }
     async componentDidMount() {
       if (!this.state.LazComp) {
-        comp().then(({ default: LazComp }) => {
-          this.setState({ LazComp });
-        });
+        // comp().then(({ default: LazComp }) => {
+        //   this.setState({ LazComp });
+        // });
+        const { default: LazComp } = await comp();
+        this.setState({ LazComp });
       }
     }
     render() {
       const {
         state: { LazComp }
       } = this;
-      return LazComp ? (
-        <LazComp />
-      ) : (
-        <div>
-          <h1>Loading..</h1>
-        </div>
-      );
+      return LazComp ? <LazComp /> : null;
     }
   }
   return LazLoad;

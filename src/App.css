@@ -1,0 +1,54 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "https://use.fontawesome.com/releases/v5.0.10/css/all.css";
+@import "~animate.css";
+
+:root {
+  --theme-font: "Underdog", cursive;
+
+  --default-font-color: #673ab7;
+  --default-font-color-alpha: rgba(103, 58, 183, 0.5);
+  --default-active-font-color: #6200ea;
+  --sec-about-font-color: #03a9f4;
+  --sec-about-font-color-alpha: rgba(0, 255, 255, 0.5);
+  --sec-portfolio-font-color: #20c997;
+  --sec-portfolio-font-color-alpha: rgba(32, 201, 151, 0.5);
+  --sec-contact-font-color: #e91e63;
+  --sec-contact-font-color-alpha: rgba(233, 30, 99, 0.5);
+
+  --font-color: var(--default-font-color);
+  --font-color-alpha: var(--default-font-color-alpha);
+  --active-font-color: var(--default-active-font-color);
+}
+
+body {
+  color: var(--font-color);
+}
+
+.sec-link {
+  color: var(--font-color);
+}
+.sec-link:hover {
+  text-decoration: none;
+}
+
+.sec-for-about {
+  --active-font-color: var(--sec-about-font-color);
+  --active-font-color-alpha: var(--sec-about-font-color-alpha);
+}
+.sec-for-portfolio {
+  --active-font-color: var(--sec-portfolio-font-color);
+  --active-font-color-alpha: var(--sec-portfolio-font-color-alpha);
+}
+.sec-for-contact {
+  --active-font-color: var(--sec-contact-font-color);
+  --active-font-color-alpha: var(--sec-contact-font-color-alpha);
+}
+
+@keyframes shadow {
+  0% {
+    text-shadow: 0 0 1px #000, 0xp 0xp 0 var(--font-color);
+  }
+  100% {
+    text-shadow: 0 0 1px #000, 3px 6px 0 var(--font-color);
+  }
+}

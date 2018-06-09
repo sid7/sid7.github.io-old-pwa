@@ -1,0 +1,56 @@
+@import "https://fonts.googleapis.com/css?family=Underdog";
+
+.sec-home {
+  --font-color: var(--default-font-color);
+  --font-color-alpha: var(--default-font-color-alpha);
+}
+
+.sec--header {
+  padding-top: 4%;
+  padding-bottom: 4%;
+  text-align: center;
+  font-family: var(--theme-font);
+  border-bottom: 4px solid #eee;
+}
+.sec--header .sec-link {
+  font-size: 40vmin;
+  color: #fff;
+  line-height: 1;
+  text-shadow: 0 0 1px #000;
+  animation-name: shadow;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.sec--links {
+  padding-top: 2%;
+}
+
+.btn.sec-link {
+  font-size: 5vh;
+  font-family: var(--theme-font);
+  font-weight: 200;
+  background-color: transparent;
+  border: 4px solid #eee;
+  box-shadow: 0 0px 0 var(--font-color), 0 0 0 4px #fafafa;
+  border-radius: 0;
+  transition: color 0.5s ease-in-out, border 0.5s ease-in-out,
+    box-shadow 0.5s ease-in-out;
+}
+.btn.sec-link:hover {
+  color: var(--active-font-color);
+  border-bottom-color: var(--active-font-color, --font-color);
+  box-shadow: 0 2px 0 var(--active-font-color, --font-color), 0 0 0 4px #fafafa;
+}
+
+.sec--social-links {
+  padding-top: 2%;
+  text-align: center;
+}
+
+.sec--social-links a {
+  color: var(--font-color);
+}
+.sec--social-links a:hover {
+  color: var(--active-font-color);
+}
