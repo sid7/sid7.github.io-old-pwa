@@ -6,7 +6,7 @@ import {
   Switch
 } from "react-router-dom";
 import "./App.css";
-import $ from "jquery/dist/jquery.slim";
+import $ from "./tools/custom-jquery";
 import "bootstrap";
 import { Home, About, ShowTime, Portfolio, Contact, Page404 } from "./Pages";
 window.$ = $;

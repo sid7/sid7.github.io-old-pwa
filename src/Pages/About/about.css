@@ -1,0 +1,4 @@
+.sec-about {
+  --font-color: var(--sec-about-font-color);
+  --font-color-alpha: var(--sec-about-cont-color-alpha);
+}

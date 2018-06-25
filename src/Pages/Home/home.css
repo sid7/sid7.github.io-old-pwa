@@ -1,18 +1,16 @@
-@import "https://fonts.googleapis.com/css?family=Underdog";
-
 .sec-home {
   --font-color: var(--default-font-color);
   --font-color-alpha: var(--default-font-color-alpha);
 }
 
-.sec--header {
-  padding-top: 4%;
-  padding-bottom: 4%;
+.sec-home .sec--header {
+  padding: 4% 0;
   text-align: center;
   font-family: var(--theme-font);
   border-bottom: 4px solid #eee;
+  background-color: transparent;
 }
-.sec--header .sec-link {
+.sec-home .sec--header .sec-link {
   font-size: 40vmin;
   color: #fff;
   line-height: 1;
@@ -21,7 +19,9 @@
   animation-duration: 1s;
   animation-fill-mode: forwards;
 }
-
+.sec-home .sec--header .sec-link:hover {
+  color: #fdfdfd;
+}
 .sec--links {
   padding-top: 2%;
 }

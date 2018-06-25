@@ -1,0 +1,4 @@
+.sec-contact {
+  --font-color: var(--sec-contact-font-color);
+  --font-color-alpha: var(--sec-contact-font-color-alpha);
+}

@@ -1,5 +1,6 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
-@import "https://use.fontawesome.com/releases/v5.0.10/css/all.css";
+@import "https://fonts.googleapis.com/css?family=Underdog";
+@import "https://use.fontawesome.com/releases/v5.1.0/css/all.css";
 @import "~animate.css";
 
 :root {
@@ -8,6 +9,7 @@
   --default-font-color: #673ab7;
   --default-font-color-alpha: rgba(103, 58, 183, 0.5);
   --default-active-font-color: #6200ea;
+
   --sec-about-font-color: #03a9f4;
   --sec-about-font-color-alpha: rgba(0, 255, 255, 0.5);
   --sec-portfolio-font-color: #20c997;
@@ -20,14 +22,31 @@
   --active-font-color: var(--default-active-font-color);
 }
 
-body {
+.sec {
   color: var(--font-color);
+}
+
+.sec--header {
+  font-family: var(--theme-font);
+  background-color: #fafafa;
+  /* border-bottom: 1px solid #eee; */
+}
+.sec--header a:not(.btn) {
+  font-size: 12vh;
+  color: #fff;
+  text-shadow: 0 0 1px #000, 3px 2px 0 var(--font-color);
+  line-height: 1.2;
+  display: inline-block;
+}
+.sec--header a:not(.btn):hover {
+  color: #fafafa;
+  text-decoration: none;
 }
 
 .sec-link {
   color: var(--font-color);
 }
-.sec-link:hover {
+.a:hover {
   text-decoration: none;
 }
 
@@ -42,6 +61,39 @@ body {
 .sec-for-contact {
   --active-font-color: var(--sec-contact-font-color);
   --active-font-color-alpha: var(--sec-contact-font-color-alpha);
+}
+
+.btn-sec {
+  color: var(--font-color);
+  background-color: transparent;
+  border-color: var(--font-color);
+}
+.btn-sec:hover,
+.btn-sec:not([disabled]):not(.disabled):active {
+  background-color: var(--font-color);
+  color: #fff;
+}
+.btn-sec:focus,
+.btn-sec.focus,
+.btn-sec:not([disabled]):not(.disabled):active {
+  box-shadow: 0 0 0 0.2rem var(--font-color-alpha);
+}
+.btn-sec.filled {
+  background-color: var(--font-color);
+  color: #fff;
+  opacity: 0.15;
+}
+.btn-sec.filled:hover {
+  opacity: 1;
+}
+
+.msg-heading-text {
+  font-family: var(--theme-font);
+  font-size: 25vmin;
+  color: #fff;
+  line-height: 1;
+  text-shadow: 0 0 1px #000, 3px 6px 0 var(--font-color);
+  animation: shadow 0.5s ease 0s 1 normal forwards running;
 }
 
 @keyframes shadow {
