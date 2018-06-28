@@ -1,12 +1,12 @@
 import React, { PureComponent, Fragment } from "react";
 import { I } from "../../tools/basic-comp";
 
-const CardLink = ({ href, children }) => (
+const CardLink = ({ href, target = "_blank", children }) => (
   <a
     rel="noreferrer noopener"
     className="btn btn-sec"
     href={href}
-    target="_blank">
+    target={target}>
     {children}
   </a>
 );
@@ -104,8 +104,8 @@ function imgFailLoad({ target }) {
     .addClass("img-fail-load");
 }
 
-const Card = ({ slug, links: { code, view }, imgs, name, type, ...props }) => (
-  <div id={slug} className="col-lg-4">
+const Card = ({ id, links, imgs, name, type, ctrlModal, ...props }) => (
+  <div id={id} className="col-lg-4">
     <div className="portfolio-card img-loading" tabIndex={0}>
       <div className="img-container">
         <TopBar {...props} />
@@ -122,9 +122,14 @@ const Card = ({ slug, links: { code, view }, imgs, name, type, ...props }) => (
         </div>
       </div>
       <div className="card-actions d-flex">
-        <CardLink href={code}>Code</CardLink>
-        <CardLink href={view}>View</CardLink>
-        <button type="button" className="btn btn-sec ml-auto">
+        <CardLink href={links.code}>Code</CardLink>
+        <CardLink href={links.view}>View</CardLink>
+        <button
+          type="button"
+          onClick={() => {
+            ctrlModal({ id, name, links, imgs, type, ...props });
+          }}
+          className="btn btn-sec ml-auto">
           Info
         </button>
       </div>

@@ -16,7 +16,7 @@ export default class Contact extends Component {
               </div>
               {contactMe.profiles.map(({ to, fa, title }) => (
                 <div key={`profile-link-${title}`} className="col mt-2">
-                  <ExtLinkBtn className="btn-lg btn-block" to={to}>
+                  <ExtLinkBtn className="sec btn-lg btn-block" to={to}>
                     <I prefex="fab" fa={`${fa} fa-fw`} /> {title}
                   </ExtLinkBtn>
                 </div>
@@ -28,7 +28,7 @@ export default class Contact extends Component {
               </div>
               {contactMe.social.map(({ url, fa, text }) => (
                 <div key={`social-link-${text}`} className="col mt-2">
-                  <ExtLinkBtn className="btn-lg btn-block" to={url}>
+                  <ExtLinkBtn className="sec btn-lg btn-block" to={url}>
                     <I prefex="fab" fa={`${fa} fa-fw`} /> {text}
                   </ExtLinkBtn>
                 </div>
@@ -39,7 +39,7 @@ export default class Contact extends Component {
                 <h2 className="display-4">E-Mail -</h2>
               </div>
               <div className="col-12">
-                <ExtLinkBtn to="mailto:suyashsidzzz@gmail.com">
+                <ExtLinkBtn className="sec" to="mailto:suyashsidzzz@gmail.com">
                   <I fa="envelope fa-fw" /> E-Mail
                 </ExtLinkBtn>{" "}
                 &nbsp;

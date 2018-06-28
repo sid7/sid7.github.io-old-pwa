@@ -23,7 +23,7 @@ Btn.propTypes = {
 const ExtLinkBtn = ({ to, inNewTab = "_blank", className, children }) => (
   <a
     rel="noreferrer noopener"
-    className={`btn btn-sec${className ? ` ${className}` : ""}`}
+    className={`btn btn-${className}`}
     href={to}
     target={inNewTab}>
     {children}

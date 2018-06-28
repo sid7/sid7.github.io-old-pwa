@@ -10,9 +10,6 @@ function Laz(comp) {
     }
     async componentDidMount() {
       if (!this.state.LazComp) {
-        // comp().then(({ default: LazComp }) => {
-        //   this.setState({ LazComp });
-        // });
         const { default: LazComp } = await comp();
         this.setState({ LazComp });
       }
@@ -21,7 +18,7 @@ function Laz(comp) {
       const {
         state: { LazComp }
       } = this;
-      return LazComp ? <LazComp /> : null;
+      return LazComp ? <LazComp {...this.props} /> : null;
     }
   }
   return LazLoad;

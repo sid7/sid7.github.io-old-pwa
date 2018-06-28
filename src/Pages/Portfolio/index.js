@@ -8,8 +8,12 @@ window.myPortfolio = myPortfolio;
 
 export default class Portfolio extends Component {
   shadowLoading = true;
+  fetched = {};
   state = { data: myPortfolio.getAll() };
   fetchMyCodepenData() {
+    if (this.fetched.codepen) {
+      return this.fetched.codepen;
+    }
     let p = 1,
       _data = {};
     async function _fetch(page, callback) {
@@ -34,14 +38,15 @@ export default class Portfolio extends Component {
         data.forEach(d => {
           d.loves = _data[d.id].loves;
           d.views = _data[d.id].views;
+          d.comments = _data[d.id].comments;
         });
+        this.fetched.codepen = data;
         return { data };
       });
     });
   }
   componentDidMount() {
     const $ = window.$;
-    $(".portfolio-card").animateCss("fadeIn");
     $(".portfolio-card .img-container").on("mousemove", function(e) {
       let origin =
         ((e.pageX - $(this).offset().left) / $(this).width()) * 100 +
@@ -53,13 +58,16 @@ export default class Portfolio extends Component {
         .css({ "transform-origin": origin });
     });
     this.fetchMyCodepenData();
+    $(".sec--content").animateCss("slideInUp");
   }
   render() {
     return (
       <div className="container-fluid sec sec-portfolio">
         <SecHeader href="/portfolio">My Portfolio</SecHeader>
         <div className="row sec--content">
-          {this.state.data.map((a, i) => <Card key={`card-${i}`} {...a} />)}
+          {this.state.data.map((a, i) => (
+            <Card {...this.props} key={`card-${i}`} {...a} />
+          ))}
         </div>
       </div>
     );
