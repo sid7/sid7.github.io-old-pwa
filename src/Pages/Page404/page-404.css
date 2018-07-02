@@ -1,0 +1,21 @@
+.sec-404 {
+  padding-top: 20px;
+}
+.sec-404 .card {
+  text-align: center;
+  border-color: var(--font-color);
+}
+.sec-404 .card-header {
+  background-color: var(--font-color);
+}
+.sec-404 .card-header,
+.sec-404 .card-body {
+  color: #fff;
+  text-shadow: 0 0 1px #000, 3px 2px 0 var(--font-color);
+  font-family: var(--theme-font);
+  font-size: 19vmin;
+  line-height: 1;
+}
+.sec-404 .card-footer {
+  display: flex;
+}
