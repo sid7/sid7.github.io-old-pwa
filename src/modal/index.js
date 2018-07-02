@@ -2,6 +2,16 @@ import React, { PureComponent } from "react";
 import { Header, Body, Footer } from "./sub-comps";
 import "./modal.css";
 
+function hoverEffect(e) {
+  const $ = window.$;
+  let origin =
+    ((e.pageX - $(this).offset().left) / $(this).width()) * 100 +
+    "% " +
+    ((e.pageY - $(this).offset().top) / $(this).height()) * 100 +
+    "%";
+  $(this).css({ "background-position": origin });
+}
+
 export default class Modal extends PureComponent {
   clickOnPage = ({ target }) => {
     if (!this.refs.modalContent.contains(target)) {
@@ -12,25 +22,18 @@ export default class Modal extends PureComponent {
     this.props.ctrlModal(null, false);
   };
   componentDidMount() {
-    const $ = window.$;
     document.querySelector("body").classList.add("modal-open");
     document
       .querySelector(".modal")
       .addEventListener("click", this.clickOnPage);
-    $(".modal-body").on("mousemove", function(e) {
-      let origin =
-        ((e.pageX - $(this).offset().left) / $(this).width()) * 100 +
-        "% " +
-        ((e.pageY - $(this).offset().top) / $(this).height()) * 100 +
-        "%";
-      $(this).css({ "background-position": origin });
-    });
+    window.$(".modal-body").on("mousemove", hoverEffect);
   }
   componentWillUnmount() {
     document.querySelector("body").classList.remove("modal-open");
     document
       .querySelector(".modal")
       .removeEventListener("click", this.clickOnPage);
+    window.$(".modal-body").off("mousemove", hoverEffect);
   }
   render() {
     return (

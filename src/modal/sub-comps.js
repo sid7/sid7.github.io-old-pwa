@@ -1,5 +1,5 @@
 import React from "react";
-import { ExtLinkBtn } from "../tools/basic-comp";
+import { I, ExtLinkBtn } from "../tools/basic-comp";
 
 const Header = ({ title: __html = "Suyash", hide }) => (
   <div className="modal-header">
@@ -17,7 +17,12 @@ const Body = ({ name, imgs, links, type, light, ...rest }) => (
     <div className="container-fluid sec-portfolio">
       <div className="row p-4">
         <div className="col">
-          <table className={`table table-bordered${light ? " light" : ""}`}>
+          <table
+            className={`table table-bordered`}
+            style={{
+              backgroundImage: rest.backImg,
+              "--border-color": `rgba(${rest.theme}, 0.9)`
+            }}>
             <tbody>
               <tr>
                 <td>Title</td>
@@ -31,10 +36,10 @@ const Body = ({ name, imgs, links, type, light, ...rest }) => (
                 <td>links</td>
                 <td>
                   <ExtLinkBtn className="sec btn-sm" to={links.code}>
-                    Code
+                    <I prefex="fab" fa={rest.parts.host} /> Code
                   </ExtLinkBtn>{" "}
                   <ExtLinkBtn className="sec btn-sm" to={links.view}>
-                    View
+                    <I prefex="fab" fa={rest.parts.host} /> View
                   </ExtLinkBtn>
                 </td>
               </tr>

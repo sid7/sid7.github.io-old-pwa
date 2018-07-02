@@ -1,8 +1,8 @@
 const base_link = "https://www.codepen.io/sid7";
 
 const codepen = [
-  { id: "yOQjgY", name: "Note App" },
-  { id: "QNvWdy", name: "MDl Form" }
+  { id: "yOQjgY", name: "Note App", theme: "228, 60, 52" },
+  { id: "QNvWdy", name: "MDl Form", theme: "237, 237, 244" }
 ];
 
 codepen.forEach(a => {
@@ -15,6 +15,7 @@ codepen.forEach(a => {
     sm: `${base_link}/pen/${a.id}/image/small.png`
   };
   a.parts = { host: "codepen" };
+  a.backImg = `linear-gradient(rgba(${a.theme}, 0.6), rgba(${a.theme}, 0.9))`;
 });
 
 codepen.reverse();

@@ -18,7 +18,7 @@
   );
 }
 .modal td {
-  border-color: rgba(0, 0, 0, 0.6);
+  border-color: var(--border-color, rgba(0, 0, 0, 0.6));
 }
 .modal .table.light td {
   border-color: #eee;

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { SecHeader } from "../../tools/basic-comp";
+import { I } from "../../tools/basic-comp";
+import { Link } from "react-router-dom";
 import Card from "./card";
 import myPortfolio from "./my-portfolio";
 import "./portfolio.css";
@@ -25,7 +26,8 @@ export default class Portfolio extends Component {
         data.forEach(d => {
           _data[d.id] = {
             loves: parseInt(d.loves, 10),
-            views: parseInt(d.views, 10)
+            views: parseInt(d.views, 10),
+            comments: parseInt(d.comments, 10)
           };
         });
         p++;
@@ -63,7 +65,19 @@ export default class Portfolio extends Component {
   render() {
     return (
       <div className="container-fluid sec sec-portfolio">
-        <SecHeader href="/portfolio">My Portfolio</SecHeader>
+        <div className="row">
+          <div className="col-12 flex-header">
+            <Link to="/" className="back-link">
+              &#171;
+            </Link>
+            <a href="/portfolio" className="base-link">
+              My Portfolio
+            </a>
+            <Link to="/portfolio/showtime" className="btn btn-sec ml-auto">
+              <I fa="tv" /> Slide Show
+            </Link>
+          </div>
+        </div>
         <div className="row sec--content">
           {this.state.data.map((a, i) => (
             <Card {...this.props} key={`card-${i}`} {...a} />

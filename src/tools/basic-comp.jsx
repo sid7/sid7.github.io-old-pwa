@@ -36,12 +36,14 @@ ExtLinkBtn.propTypes = {
 };
 
 const SecHeader = ({ href, children }) => (
-  <div className="row sec--header">
-    <div className="col-1 text-center">
-      <Link to="/">&#171;</Link>
-    </div>
-    <div className="col-11">
-      <a href={href}>{children}</a>
+  <div className="row">
+    <div className="col-12 flex-header">
+      <Link to="/" className="back-link">
+        &#171;
+      </Link>
+      <a href={href} className="base-link">
+        {children}
+      </a>
     </div>
   </div>
 );
@@ -59,4 +61,14 @@ Msg.propTypes = {
   text: PropTypes.string.isRequired
 };
 
-export { I, Btn, SecHeader, ExtLinkBtn, Msg };
+const Loader = ({ icon = "cog fa-spin", text = "Loading.." }) => (
+  <div className="col-12 loading">
+    <I fa={icon} /> <h1>{text}</h1>
+  </div>
+);
+Loader.propTypes = {
+  icon: PropTypes.string,
+  text: PropTypes.string
+};
+
+export { I, Btn, SecHeader, ExtLinkBtn, Msg, Loader };
