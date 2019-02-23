@@ -1,0 +1,41 @@
+.stamp {
+  display: inline-block;
+  text-align: center;
+  box-shadow: $shadow;
+  border-radius: 5px;
+  margin: 15px;
+  color: inherit;
+  user-select: none;
+
+  .stamp-icon {
+    font-size: 3em;
+    @media (min-width: 350px) {
+      font-size: 5.5em;
+    }
+    @include break-point(m) {
+      font-size: 6em;
+    }
+    padding: 5px;
+    @include br(top);
+  }
+  &-title {
+    display: block;
+    border-top: 2px solid var(--main-lighter-color);
+    @include br(bottom);
+    font-size: 1.2rem;
+    @media (min-width: map-get($br, sm)) {
+      font-size: 1.5rem;
+    }
+    padding: 5px 15px;
+  }
+
+  &:hover {
+    .stamp-icon {
+      color: #fff;
+      background-color: var(--main-color);
+    }
+    .stamp-title {
+      color: var(--main-color);
+    }
+  }
+}

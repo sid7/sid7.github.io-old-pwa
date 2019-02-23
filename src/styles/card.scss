@@ -1,0 +1,63 @@
+.card-pad {
+  @extend %flx;
+  justify-content: space-between;
+  @media (min-width: map-get($br, sm)) {
+    padding: 0 25px;
+  }
+}
+
+.card {
+  margin: 10px 0;
+  width: 100%;
+  border: 4px solid #fff;
+  box-shadow: $shadow;
+  @media (min-width: map-get($b, m)) {
+    width: calc(50vw - 90px);
+    margin: 10px;
+  }
+  @media (min-width: map-get($b, l)) {
+    width: calc((100vw / 3) - 60px - 30px);
+  }
+  .img-container {
+    position: relative;
+    z-index: 98;
+    overflow: hidden;
+    img {
+      min-height: 150px;
+      max-width: 100%;
+      height: auto;
+      transition: transform 0.15s ease-in-out;
+    }
+    &:hover img {
+      transform: scale(1.5);
+    }
+  }
+  .card-body {
+    h3 {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      font-size: 1.2rem;
+      font-weight: 400;
+      padding: 5px 15px;
+      color: #fff;
+      background-color: rgba($color: theme(projects), $alpha: 0.75);
+      letter-spacing: 1px;
+    }
+  }
+  .card-footer {
+    @extend %flx;
+    justify-content: space-between;
+    padding: 5px 2px 1px;
+    border-top: 1px solid var(--sec-border-color);
+    // background-color: #fafafa;
+    // a:first-child {
+    //   margin-left: 0;
+    // }
+    // button.btn-outline {
+    //   margin-left: auto;
+    //   margin-right: 0;
+    // }
+  }
+}

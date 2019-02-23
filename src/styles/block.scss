@@ -1,0 +1,23 @@
+.block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  margin: 10px 0;
+  @media (min-width: map-get($br, md)) {
+    width: calc((100vw / 3) - 60px - 30px);
+    margin: 10px;
+  }
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+  .flx {
+    justify-content: space-evenly;
+  }
+  .link-btn {
+    flex-grow: 1;
+    margin: 5px;
+  }
+}

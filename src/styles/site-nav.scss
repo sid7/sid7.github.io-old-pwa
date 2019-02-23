@@ -1,0 +1,38 @@
+.site-nav {
+  @extend %flx;
+  justify-content: space-around;
+  background-color: var(--main-color);
+  position: fixed;
+  width: 100%;
+  font-size: 1.6rem;
+  bottom: 0;
+  left: 0;
+  padding: 5px;
+  z-index: 99;
+  will-change: background-color;
+  padding: 5px;
+  @media (min-width: map-get($br, md)) {
+    justify-content: space-evenly;
+    position: sticky;
+    top: 0;
+    bottom: unset;
+    padding: 2.5px;
+  }
+
+  a {
+    color: #eee;
+    border-bottom: 2px solid transparent;
+    &.active {
+      color: #fff;
+      border-color: #fff;
+    }
+    &:not(.active):hover {
+      color: #fafafa;
+    }
+  }
+}
+@supports (-ms-ime-align: auto) {
+  .site-nav {
+    justify-content: space-around !important;
+  }
+}

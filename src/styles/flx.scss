@@ -1,0 +1,23 @@
+.flx {
+  @extend %flx;
+  .col {
+    padding: 5px 15px;
+    text-align: center;
+  }
+  .col-7,
+  .col-3 {
+    @extend %flx;
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 5px 15px;
+  }
+  @include break-point(m) {
+    .col-7 {
+      width: 70%;
+      font-size: 2rem;
+    }
+    .col-3 {
+      width: 30%;
+    }
+  }
+}

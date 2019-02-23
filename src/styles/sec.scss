@@ -1,0 +1,113 @@
+main {
+  background-color: #fff;
+}
+.sec {
+  color: var(--main-color);
+  min-height: 100vh;
+  h1 {
+    font-size: 20vmin;
+    font-weight: 300;
+  }
+  .sec-heading {
+    font-size: 12vmin;
+    font-weight: 300;
+    border-bottom: 2px solid;
+    padding: 5px 15px;
+    margin-top: 5px;
+  }
+  &-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--main-color);
+    text-align: center;
+    min-height: calc(100vh - 38px);
+    border-bottom: 1px solid rgba($color: #fff, $alpha: 0.2);
+    &,
+    a {
+      color: #fff;
+    }
+    @media (min-width: map-get($br, sm)) {
+      min-height: calc(100vh - 85px);
+    }
+  }
+  @at-root section#{&} {
+    padding: 5px 15px;
+    @media (min-wdith: map-get($br, sm)) {
+      min-height: calc(100vh - 50px);
+    }
+  }
+  &-about {
+    display: flex;
+    flex-direction: column;
+    .flx {
+      flex-grow: 1;
+      .lst {
+        @include break-point(m) {
+          margin: auto 0;
+        }
+      }
+    }
+  }
+  &-skills {
+    @extend %flx;
+    flex-direction: column;
+    .flx {
+      list-style: none;
+      margin: 0;
+      justify-content: space-around;
+      flex-grow: 1;
+      li {
+        font-size: 3rem;
+        font-weight: 300;
+        margin: 25px;
+        // color: #fff;
+        // background-color: var(--main-color);
+        padding: 5px 15px;
+      }
+    }
+    ._flx {
+      padding: 40px;
+      height: 100%;
+      justify-content: space-evenly;
+      flex-grow: 1;
+      h3 {
+        font-size: 2.5rem;
+        font-weight: 300;
+        letter-spacing: 1px;
+      }
+      .board {
+        margin: 20px;
+        flex-grow: 1;
+        flex-shrink: 1;
+        padding: 5px;
+      }
+    }
+  }
+  &-contact {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 85px);
+    .flx {
+      flex-direction: column;
+      margin: auto;
+    }
+    .stamp-group {
+      text-align: center;
+    }
+    .link-btn {
+      display: block;
+      border-color: var(--main-color);
+      font-size: 1rem;
+      margin: 15px;
+      @media (min-width: 350px) {
+        font-size: 1.2rem;
+      }
+      @each $p, $s in (s: 1.5, m: 2, l: 2.5) {
+        @include break-point($p) {
+          font-size: #{$s}rem;
+        }
+      }
+    }
+  }
+}

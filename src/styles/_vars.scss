@@ -1,0 +1,77 @@
+$link-color: #007bff;
+$main-color: #ff7f50;
+$main-color: #ff5722;
+$shadow: rgb(168, 168, 168) 0px 2px 4px;
+$shadow: var(--main-color) 0px 2px 4px;
+
+$colors: (
+  // home: #ff7f50,
+    home: #ff5722,
+  about: #009688,
+  skills: #e91e63,
+  // projects: #795548,
+    // projects: #20c997,
+    projects: #03a9f4,
+  contact: #673ab7
+);
+@function theme($key) {
+  @return map-get($colors, $key);
+}
+@function theme-color-a($color, $a) {
+  $color: theme($color);
+  @return rgba($color: $color, $alpha: $a);
+}
+
+$br: (
+  sm: 575px,
+  md: 770px,
+  lg: 900px
+);
+
+$b: (
+  s: 576px,
+  m: 768px,
+  l: 990px
+);
+
+@mixin break-point($n, $p: $b) {
+  @media (min-width: map-get($p, $n)) {
+    @content;
+  }
+}
+
+@mixin shadow($color: #fff) {
+  box-shadow: 0px 2px 4px $color;
+}
+@mixin br($dir, $r: 5px) {
+  border-#{$dir}-left-radius: $r;
+  border-#{$dir}-right-radius: $r;
+}
+
+%flx {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+:root {
+  --border-width: 10px;
+  --main-color: #{$main-color};
+
+  @each $v, $val in $colors {
+    $br: rgba(
+      $color: $val,
+      $alpha: 0.11
+    );
+    --sec-#{$v}-color: #{$val};
+    --sec-#{$v}-lighter-color: #{$br};
+    @at-root .sec-#{$v},
+      .active-#{$v} {
+      $sec-color: $val;
+      --main-color: var(--sec-#{$v}-color);
+      --main-lighter-color: var(--sec-#{$v}-lighter-color);
+    }
+  }
+  @media (min-width: map-get($br, sm)) {
+    --border-width: 25px;
+  }
+}
